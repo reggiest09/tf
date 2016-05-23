@@ -15,9 +15,11 @@
         <p><%= number_to_currency(listing.amount) %></p>
         <p><%= "Created by #{listing.user.name}" %></p>
         <p><%= listing.short_description %></p>
-        <%= link_to 'Show', listing, class: "btn-btn-link" %>
+        
+       <% if(user_signed_in?)&& (current_user == listing.user) %>
         <%= link_to 'Edit', edit_listing_path(listing), class: "btn-btn-link" %>
         <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-btn-link" %>
+        <%end %>
          </div>
        </div>
      </div>
@@ -31,4 +33,6 @@
 
  
   
-<%= link_to 'New Listing', new_listing_path, class: "btn-btn-link" %>
+<% if user_signed_in? %>
+  <%= link_to "New Listing", new_listing_path, class: "btn btn-primary", data: { no_turbolink: true } %>
+<% end %>
