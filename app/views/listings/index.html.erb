@@ -13,6 +13,7 @@
       <div class="caption">
         <h3><%= listing.name %></h3>
         <p><%= number_to_currency(listing.amount) %></p>
+        <p><%= "Sold by #{listing.user.name}" %></p>
         <p><%= listing.short_description %></p>
         <%= link_to 'Show', listing, class: "btn-btn-link" %>
         <%= link_to 'Edit', edit_listing_path(listing), class: "btn-btn-link" %>

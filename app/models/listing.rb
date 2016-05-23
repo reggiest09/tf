@@ -6,5 +6,6 @@ validates_presence_of :picture
 
   validates :name, :description, :short_description, :amount, presence: true
   validates :amount, numericality: { greater_than: 0 }
+  belongs_to :user
 
 end
