@@ -9,6 +9,10 @@
       <h3><%= @listing.name %><h3>
       <p><%= number_to_currency(@listing.amount) %><p>
       <p><%= @listing.description %><p>
+        <br>
+        <div class="center">
+      <%= link_to "Donate Now", new_listing_order_path(@listing), class: "btn btn-primary btn-lg btn-block", data: { no_turbolink: true } %>
+    </div>
     </div>
 </div>
 

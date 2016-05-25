@@ -8,4 +8,6 @@ validates_presence_of :picture
   validates :amount, numericality: { greater_than: 0 }
   belongs_to :user
 
+  has_many :orders
+
 end
