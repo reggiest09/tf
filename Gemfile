@@ -30,3 +30,5 @@ gem 'devise'
 gem 'rename'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'stripe'
+gem "figaro"

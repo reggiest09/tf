@@ -1,0 +1,31 @@
+<div class="center">
+  <h2>TAPS Donation History</h2>
+</div>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center">Picture</th>
+    <th class="center">Item</th>
+    <th class="center">Customer</th>
+    <th class="center">Amount</th>
+    <th class="center">Donation Date</th>
+  </tr>
+
+  <% @orders.each do |order| %>
+    <tr>
+      
+      <td class="center"><%= image_tag order.listing.picture.thumb.url %></td>
+      <td class="center"><%= order.listing.name %></td>
+      <td class="center"><%= order.buyer.name %></td>
+      <td class="center"><%= number_to_currency(order.listing.amount) %></td>
+      <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+        
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true } %>
+<% end %>
