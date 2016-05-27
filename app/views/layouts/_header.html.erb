@@ -17,12 +17,21 @@
       <li><%= link_to "Contact", pages_contact_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      
+      
+
       <% if user_signed_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
+             <% if can? :read, @listings %>
             <li><%= link_to "Manage Listings", seller_path %></li>
-            <li><%= link_to "TD History", sales_path %></li>
+            <% end %>
+             
+             <% if can? :read, @orders %>
+            <li><%= link_to "sales History", sales_path %></li>
+            <%end %>
+
           </ul>
         </li>
 

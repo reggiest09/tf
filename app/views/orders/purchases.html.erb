@@ -1,5 +1,5 @@
 <div class="center">
-  <h2>Your Donation History</h2>
+  <h2>Donation History</h2>
 </div>
 
 <table class="table table-striped table-bordered">
@@ -25,7 +25,8 @@
 </table>
 
 <br>
+    
+<% if can? :create, @listing %>
 
-<% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true } %>
 <% end %>

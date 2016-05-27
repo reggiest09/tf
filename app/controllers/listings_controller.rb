@@ -28,6 +28,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    authorize! :edit, @listing
   end
 
   # POST /listings
@@ -35,6 +36,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
+    authorize! :create, @listing
 
     respond_to do |format|
       if @listing.save
@@ -64,6 +66,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
+    authorize! :edit, @listing
     @listing.destroy
     respond_to do |format|
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }

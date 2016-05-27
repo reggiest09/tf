@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def sales
     @orders = Order.all.where(seller: current_user).order("created_at DESC")
+    authorize! :read, @orders
+
   end
 
   def purchases
