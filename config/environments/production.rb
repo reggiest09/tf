@@ -68,6 +68,7 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
+   config.action_mailer.perform_deliveries = true
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
@@ -77,17 +78,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  config.action_mailer.default_url_options = { :host => 'fundtaps.org'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'fundtaps.org',
-    :user_name            =>  'fundtapsreset@gmail.com',
-    :password             =>   '1bit2bit',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.default_url_options = { :host => 'infinite-shore-53816.herokuapp.com'}
+  
 end
 
 
