@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 
   def purchases
     @orders = Order.all.where(buyer: current_user).order("created_at DESC")
+    authorize! :read, @orders
   end
 
 
