@@ -14,11 +14,12 @@
   <% @orders.each do |order| %>
     <tr>
       
-      <td class="center"><%= <%= image_tag order.try(:listing).try(:picture).try(:thumb).try(:url) %></td>
+      <td class="center"><%= image_tag order.try(:listing).try(:picture).try(:thumb).try(:url) %></td>
       <td class="center"><%= order.try(:name) %></td>
-      <td class="center"><%= order.seller.name %></td>
-      <td class="center"><%= number_to_currency(order.listing.amount) %></td>
+      <td class="center"><%= order.try(:seller).try(:name) %></td>
+      <td class="center"><%= number_to_currency(order.try(:listing).try(:amount)) %></td>
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+
         
     </tr>
   <% end %>
